@@ -6,10 +6,13 @@ from urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
 def redirect(url):
+    if "http" not in url:
+        url="http://"+url
     response = requests.get(url, verify=False)
 
     for r in response.history:
         print("\n" + str(r.status_code), r.url)
+        #, r.headers, r.text)
 
     print("\n" + str(response.status_code), response.url + "\n")
 

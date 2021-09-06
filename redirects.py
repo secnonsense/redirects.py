@@ -20,8 +20,8 @@ def redirect(url,headers=0,body=0):
     print("\n" + str(response.status_code), response.url + "\n")
     if headers==1:
         print(response.headers)
-    #if body==1:
-        #print(response.text)
+    if body==1:
+        print(response.text)
 
 
 def parse_args():
